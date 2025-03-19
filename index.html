@@ -662,71 +662,120 @@
 </div>
 </footer>
 
-<!-- Add scripts at the end of the body -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  // Initialize AOS animation
-  document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
 
-    // Original script.js content
-    function toggleMenu() {
-      const menu = document.querySelector(".menu-links");
-      const icon = document.querySelector(".hamburger-icon");
-      menu.classList.toggle("open");
-      icon.classList.toggle("open");
-    }
-
-    // Project modal functionality
-    const modal = document.getElementById("project-modal");
-    const closeModalBtn = document.getElementsByClassName("close-modal")[0];
-    const projectCards = document.querySelectorAll(".project-card");
-    
-    // Open modal when project card is clicked
-    projectCards.forEach(card => {
-      card.addEventListener("click", function() {
-        const projectTitle = this.querySelector("h3").textContent;
-        const projectDesc = this.getAttribute("data-description");
-        const projectTech = this.getAttribute("data-tech");
-        const projectImg = this.querySelector("img").src;
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding">
+      <p class="section__text__p1" data-aos="fade-up">Get in Touch</p>
+      <h1 class="title" data-aos="fade-up">Contact Me</h1>
+      
+      <div class="contact-container" data-aos="fade-up">
+        <div class="contact-form-container">
+          <h3><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">Sanjeev</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">sanjubandaru14@gmail.com</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required placeholder="Project Inquiry">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="I'd like to discuss a potential project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-color-1 submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
         
-        document.getElementById("modal-title").textContent = projectTitle;
-        document.getElementById("modal-description").textContent = projectDesc;
-        document.getElementById("modal-tech").textContent = "Technologies: " + projectTech;
-        document.getElementById("modal-image").src = projectImg;
-        
-        modal.style.display = "flex";
-      });
-    });
+        <div class="contact-info-container">
+          <div class="contact-card" data-aos="zoom-in">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info">
+              <h3>Email</h3>
+              <p><a href="mailto:sanjubandaru14@gmail.com">sanjubandaru14@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="contact-info">
+              <h3>LinkedIn</h3>
+              <p><a href="https://www.linkedin.com/in/sanjeev-b-ba4078247" target="_blank">Sanjeev Bandaru</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-info">
+              <h3>Phone</h3>
+              <p><a href="tel:+447553499843">+44 7553 499 843</a></p>
+              <p><a href="tel:+917995331111">+91 7995 331 111</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="contact-info">
+              <h3>GitHub</h3>
+              <p><a href="https://github.com/sanju49b" target="_blank">sanju49b</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
-    // Close modal when close button is clicked
-    closeModalBtn.addEventListener("click", function() {
-      modal.style.display = "none";
-    });
+    <!-- PROJECT MODAL -->
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-content"></div>
+      </div>
+    </div>
     
-    // Close modal when clicking outside of it
-    window.addEventListener("click", function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    });
-    
-    // Form submission handling
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm) {
-      contactForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        // Handle form submission here
-        alert("Thank you for your message! I'll get back to you soon.");
-        contactForm.reset();
-      });
-    }
-  });
-</script>
-</body>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <span class="highlight">Sanjeev</span> Bandaru
+        </div>
+        <div class="footer-links">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+       </div>
+<div class="footer-social">
+  <a href="https://www.linkedin.com/in/sanjeev-b-ba4078247" target="_blank" class="social-icon-footer">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://github.com/sanju49b" target="_blank" class="social-icon-footer">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:sanjubandaru14@gmail.com" class="social-icon-footer">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+</div>
+<div class="copyright">
+  <p>&copy; 2025 Sanjeev Bandaru. All Rights Reserved.</p>
+</div>
+</footer>
 </html>
