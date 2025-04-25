@@ -7,6 +7,101 @@
     <title>Sanjeev Bandaru</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <style>
+      /* Animation styles */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes vibrate {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+      }
+      
+      /* Apply animations to elements */
+      .section__text h1, .section__text p {
+        animation: fadeIn 1s ease forwards;
+      }
+      
+      .section__pic-container img {
+        transition: transform 0.3s ease;
+      }
+      
+      .section__pic-container img:hover {
+        transform: scale(1.05);
+      }
+      
+      .details-container {
+        animation: fadeIn 0.8s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+      
+      .btn {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .vibrate-image {
+        animation: vibrate 0.5s ease infinite;
+        animation-play-state: paused;
+      }
+      
+      .vibrate-image:hover {
+        animation-play-state: running;
+      }
+      
+      /* Improved certifications section */
+      #certifications .about-containers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+      
+      #certifications .details-container {
+        flex: 0 0 280px;
+        max-width: 350px;
+        border-radius: 2rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      #certifications .details-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+      
+      #certifications .Certificate-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      #certifications .experience-sub-title {
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      
+      #certifications .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+    </style>
   </head>
   <body>
     <nav id="desktop-nav">
@@ -19,7 +114,7 @@
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-    </div> 
+      </div> 
     </nav>
     <nav id="hamburger-nav">
       <div class="logo">Sanjeev Bandaru</div>
@@ -33,13 +128,14 @@
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
     </nav>
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile.jpg" alt="Sanjeev Bandaru profile picture" />
+        <img src="./assets/profile.jpg" alt="Sanjeev Bandaru profile picture" class="vibrate-image" />
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
@@ -60,13 +156,13 @@
           <img
             src="./assets/linkedin.png"
             alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='www.linkedin.com/in/sanjeev-b-ba4078247'"
+            class="icon vibrate-image"
+            onclick="location.href='https://www.linkedin.com/in/sanjeev-b-ba4078247'"
           />
           <img
             src="./assets/github.png"
             alt="My Github profile"
-            class="icon"
+            class="icon vibrate-image"
             onclick="location.href='https://github.com/sanju49b'"
           />
         </div>
@@ -91,7 +187,7 @@
               <img
                 src="./assets/experience.png"
                 alt="Experience icon"
-                class="icon"
+                class="icon vibrate-image"
               />
               <h3>Student</h3>
               <p>Masters <br />final year</p>
@@ -100,7 +196,7 @@
               <img
                 src="./assets/education.png"
                 alt="Education icon"
-                class="icon"
+                class="icon vibrate-image"
               />
               <h3>Education</h3>
               <p>Masters of Science<br />Artificial Intelligence and Human Factors</p>
@@ -116,133 +212,131 @@
       <img
         src="./assets/arrow.png"
         alt="Arrow icon"
-        class="icon arrow"
+        class="icon arrow vibrate-image"
         onclick="location.href='./#experience'"
       />
     </section>
 
     <!-- EXPERIENCE SECTION -->
-<section id="experience">
-  <p class="section__text__p1">Explore My</p>
-  <h1 class="title">Experience</h1>
-  <div class="experience-details-container">
-    <div class="about-containers">
-      <div class="details-container">
-        <h2 class="experience-sub-title">Machine Learning Engineer</h2>
-        <div class="article-container">
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Python</h3>
-              <p>Experienced</p>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Machine Learning Engineer</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>TensorFlow & PyTorch</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Computer Vision</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Natural Language Processing</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Deep Learning</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Reinforcement Learning</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Edge AI & Embedded ML</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
             </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>TensorFlow & PyTorch</h3>
-              <p>Experienced</p>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Data Science & AI Development</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Data Preprocessing & Analysis</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Cloud Computing (AWS, GCP)</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Big Data (Hadoop, Spark)</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>SQL & NoSQL Databases</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Git & Version Control</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Automated Machine Learning (AutoML)</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon vibrate-image" />
+                <div>
+                  <h3>Time Series Analysis</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
             </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Computer Vision</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Natural Language Processing</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Deep Learning</h3>
-              <p>Experienced</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Reinforcement Learning</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Edge AI & Embedded ML</h3>
-              <p>Basic</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
-      <div class="details-container">
-        <h2 class="experience-sub-title">Data Science & AI Development</h2>
-        <div class="article-container">
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Data Preprocessing & Analysis</h3>
-              <p>Experienced</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Cloud Computing (AWS, GCP)</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Big Data (Hadoop, Spark)</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>SQL & NoSQL Databases</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Git & Version Control</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Automated Machine Learning (AutoML)</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-            <div>
-              <h3>Time Series Analysis</h3>
-              <p>Intermediate</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
-</section>
-
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow vibrate-image" onclick="location.href='./#projects'" />
+    </section>
 
     <!-- PROJECTS SECTION -->
-
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
@@ -253,7 +347,7 @@
               <img
                 src="./assets/nanogpt.jpg"
                 alt="Project 1"
-                class="project-img"
+                class="project-img vibrate-image"
               />
             </div>
             <h2 class="experience-sub-title project-title">NanoGPT</h2>
@@ -271,7 +365,7 @@
               <img
                 src="./assets/apod1_copy.original.jpg"
                 alt="Project 2"
-                class="project-img"
+                class="project-img vibrate-image"
               />
             </div>
             <h2 class="experience-sub-title project-title">NASA-APOD-ETL-Pipeline</h2>
@@ -289,7 +383,7 @@
               <img
                 src="./assets/k.jpg"
                 alt="Project 3"
-                class="project-img"
+                class="project-img vibrate-image"
               />
             </div>
             <h2 class="experience-sub-title project-title">Song Recommendation System</h2>
@@ -307,12 +401,12 @@
       <img
         src="./assets/arrow.png"
         alt="Arrow icon"
-        class="icon arrow"
+        class="icon arrow vibrate-image"
         onclick="location.href='./#certifications'"
       />
+    </section>
 
-      <!-- certifications -->
-
+    <!-- CERTIFICATIONS SECTION (IMPROVED) -->
     <section id="certifications">
       <p class="section__text__p1">Explore my</p>
       <h1 class="title">Certifications</h1>
@@ -323,17 +417,17 @@
               <img
                 src="./assets/ai.jpg"
                 alt="Certificate 1"
-                class="Certificate-img"
+                class="Certificate-img vibrate-image"
               />
             </div>
-            <h2 class="experience-sub-title Certificate-title">Aritifical Intelligence</h2>
+            <h2 class="experience-sub-title">Artificial Intelligence</h2>
             <div class="btn-container">
               <button
-                class="btn btn-color-2 certificate"
+                class="btn btn-color-2"
                 onclick="location.href='https://www.udemy.com/certificate/UC-08accd20-ea24-4dc4-ad16-59db05680304/'"
               >
                 Certificate ID
-            </button>
+              </button>
             </div>
           </div>
           <div class="details-container color-container">
@@ -341,27 +435,30 @@
               <img
                 src="./assets/ml.jpg"
                 alt="Certificate 2"
-                class="Certificate-img"
+                class="Certificate-img vibrate-image"
               />
             </div>
-            <h2 class="experience-sub-title Certificate">Machine Learning</h2>
+            <h2 class="experience-sub-title">Machine Learning</h2>
             <div class="btn-container">
               <button
-                class="btn btn-color-2 certificate"
+                class="btn btn-color-2"
                 onclick="location.href='https://www.udemy.com/certificate/UC-042ff246-3f08-4d3d-85a3-0db0930a2247/'"
               >
                 Certificate ID
               </button>
             </div>
           </div>
-          
-          </div>
         </div>
       </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow vibrate-image"
+        onclick="location.href='./#contact'"
+      />
+    </section>
 
-      <!-- CONTACT SECTION -->
-
-      
+    <!-- CONTACT SECTION -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -370,7 +467,7 @@
           <img
             src="./assets/email.png"
             alt="Email icon"
-            class="icon contact-icon email-icon"
+            class="icon contact-icon email-icon vibrate-image"
           />
           <p><a href="mailto:sanjubandaru14@gmail.com">sanjubandaru14@gmail.com</a></p>
         </div>
@@ -378,19 +475,18 @@
           <img
             src="./assets/linkedin.png"
             alt="LinkedIn icon"
-            class="icon contact-icon"
+            class="icon contact-icon vibrate-image"
           />
-          <p><a href="www.linkedin.com/in/sanjeev-b-ba4078247">LinkedIn</a></p>
+          <p><a href="https://www.linkedin.com/in/sanjeev-b-ba4078247">LinkedIn</a></p>
         </div>
         <div class="contact-info-container">
           <img
             src="./assets/mobile.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
+            alt="Mobile icon"
+            class="icon contact-icon vibrate-image"
           />
-          <p><a href="7553499843">+44 7553499843</a></p>
-          <p><a href="7995331111">+91 7995331111</a></p>
-          
+          <p><a href="tel:+447553499843">+44 7553499843</a></p>
+          <p><a href="tel:+917995331111">+91 7995331111</a></p>
         </div>
       </div>
     </section>
@@ -401,11 +497,55 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
-      <p>Copyright &#189; Sanjeev Bandaru. All Rights Reserved.</p>
+      <p>Copyright &#169; Sanjeev Bandaru. All Rights Reserved.</p>
     </footer>
+
     <script src="script.js"></script>
-  </body></html>
+    <script>
+      // Simple script to enable animations on scroll
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+          );
+        }
+        
+        // Function to handle scroll animations
+        function handleScrollAnimations() {
+          const sections = document.querySelectorAll('section');
+          
+          sections.forEach(section => {
+            if (isInViewport(section)) {
+              section.style.opacity = 1;
+              section.style.transform = 'translateY(0)';
+            }
+          });
+        }
+        
+        // Apply initial styles
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+          if (section.id !== 'profile') {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+          }
+        });
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Initial check
+        handleScrollAnimations();
+      });
+    </script>
+  </body>
+</html>
